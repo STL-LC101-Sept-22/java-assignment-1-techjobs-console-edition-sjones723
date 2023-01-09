@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Grade Assignment",
+      "setup": "",
+      "run": "./gradlew --info test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
