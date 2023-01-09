@@ -1,0 +1,18 @@
+Welcome to LaunchCode's TechJobs App!
+
+View jobs by (type 'x' to quit):
+0 - Search
+1 - List
+
+Search by:
+0 - All
+1 - Position Type
+2 - Employer
+3 - Location
+4 - Skill
+
+Search term:
+No Results
+View jobs by (type 'x' to quit):
+0 - Search
+1 - List
