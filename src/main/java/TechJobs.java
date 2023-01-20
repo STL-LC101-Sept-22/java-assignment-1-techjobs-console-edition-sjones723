@@ -14,6 +14,7 @@ public class TechJobs {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
+        //hash_map.put(key,value)
         columnChoices.put("core competency", "Skill");
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
@@ -32,25 +33,21 @@ public class TechJobs {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
 
-            if (actionChoice == null) {
-                break;
-            } else if (actionChoice.equals("list")) {
+            if (actionChoice == null) { break;}
+            else if (actionChoice.equals("list")) {
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
-                if (columnChoice.equals("all")) {
-                    printJobs(JobData.findAll());
-                } else {
-
+                if (columnChoice.equals("all")) { printJobs(JobData.findAll());}
+                else {
                     ArrayList<String> results = JobData.findAll(columnChoice);
-
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
                     // Print list of skills, employers, etc
                     for (String item : results) {
                         System.out.println(item);
-                    }
-                }
+                    }//for item:results
+                }//innerelse - elseif actionChoice.equals("list")
 
             } else { // choice is "search"
 
@@ -68,7 +65,7 @@ public class TechJobs {
                 }
             }
         }
-    }
+    }//main method
 
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
@@ -115,11 +112,41 @@ public class TechJobs {
         } while(!validChoice);
 
         return choiceKeys[choiceIdx];
-    }
+    }       //getUserSettings method
 
     // Print a list of jobs
+    //iterating over arraylist and accessing values with get("key")
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        //No values check
+        if(someJobs.isEmpty()){
+            System.out.print("No Results");
+        }
 
-        System.out.println("printJobs is not implemented yet");
-    }
+
+        for(HashMap<String, String> element:someJobs){
+            //output tests
+            /*
+            // System.out.println(element);
+            //System.out.println(element.getClass());
+            //System.out.println(element.toString());
+            //System.out.println(element.get("position type"));
+
+             */
+
+            System.out.format(
+                    "\n*****\n" +
+                    "position type: %s\n" +
+                    "name: %s\n" +
+                    "employer: %s\n" +
+                    "location: %s\n" +
+                    "core competency: %s\n" +
+                    "*****\n",
+                    element.get("position type"),
+                    element.get("name"),
+                    element.get("employer"),
+                    element.get("location"),
+                    element.get("core competency")
+                    );
+        }       //for element:someJobs
+    }//printJobs Method
 }
