@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.DoubleToIntFunction;
 
 /**
  * Created by LaunchCode
@@ -79,7 +80,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toString().toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -94,12 +95,31 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-
         // load data, if not already loaded
         loadData();
-
         // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+            //testing for transformed output
+            /*System.out.println("*********"+row.toString().toLowerCase().contains(value.toLowerCase())+"*********");
+            prev - if(row.containsValue(value)){
+
+             */
+
+            if(row.toString().toLowerCase().contains(value.toLowerCase())){
+                jobs.add(row);
+
+            }
+            /*
+            System.out.println("**********************");
+            System.out.println(row);
+            **********************
+            {position type=Data Scientist / Business Intelligence, name=Junior Data Analyst, employer=Lockerdome, location=Saint Louis, core competency=Statistical Analysis}
+             **********************
+             */
+            }
+        return jobs;
     }
 
     /**

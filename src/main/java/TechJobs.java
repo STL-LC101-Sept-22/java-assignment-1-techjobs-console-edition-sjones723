@@ -29,6 +29,7 @@ public class TechJobs {
         System.out.println("Welcome to LaunchCode's TechJobs App!");
 
         // Allow the user to search until they manually quit
+
         while (true) {
 
             String actionChoice = getUserSelection("View jobs by (type 'x' to quit):", actionChoices);
@@ -65,7 +66,7 @@ public class TechJobs {
                 }
             }
         }
-    }//main method
+    }       //main method
 
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
@@ -118,13 +119,10 @@ public class TechJobs {
     //iterating over arraylist and accessing values with get("key")
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         //No values check
-        if(someJobs.isEmpty()){
-            System.out.print("No Results");
-        }
-
+        if(someJobs.isEmpty()){ System.out.print("No Results");}
 
         for(HashMap<String, String> element:someJobs){
-            //output tests
+            //output sanity tests
             /*
             // System.out.println(element);
             //System.out.println(element.getClass());
@@ -146,7 +144,7 @@ public class TechJobs {
                     element.get("employer"),
                     element.get("location"),
                     element.get("core competency")
-                    );
-        }       //for element:someJobs
-    }//printJobs Method
+            );      // sout format
+        }       // for element:someJobs
+    }       // printJobs Method
 }
