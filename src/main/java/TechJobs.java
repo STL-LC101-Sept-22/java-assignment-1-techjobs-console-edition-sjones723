@@ -125,10 +125,16 @@ public class TechJobs {
         //using 2 for loops to open the aray list and access the
         for(HashMap<String, String> element:someJobs){
             System.out.println("\n*****");
-            for (Map.Entry<String, String> job : element.entrySet()) {
+            //testing if key only can be used
+            for (String key : element.keySet()) {
 
-                System.out.println(job.getKey() + ": " + job.getValue());
+                System.out.println(key + ": " + element.get(key));
             }
+
+//            for (Map.Entry<String, String> job : element.entrySet()) {
+//
+//                System.out.println(job.getKey() + ": " + job.getValue());
+//            }
             System.out.print("*****\n");
 
             //output sanity tests
