@@ -119,18 +119,28 @@ public class TechJobs {
     //iterating over arraylist and accessing values with get("key")
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         //No values check
-        if(someJobs.isEmpty()){ System.out.print("No Results");}
 
+        if(someJobs.isEmpty()){ System.out.print("No Results");}
+        // check count - System.out.println(someJobs.size());
+        //using 2 for loops to open the aray list and access the
         for(HashMap<String, String> element:someJobs){
+            System.out.println("\n*****");
+            for (Map.Entry<String, String> job : element.entrySet()) {
+
+                System.out.println(job.getKey() + ": " + job.getValue());
+            }
+            System.out.print("*****\n");
+
             //output sanity tests
             /*
+            // System.out.println(someJobs);
             // System.out.println(element);
             //System.out.println(element.getClass());
             //System.out.println(element.toString());
             //System.out.println(element.get("position type"));
 
              */
-
+/*
             System.out.format(
                     "\n*****\n" +
                     "position type: %s\n" +
@@ -144,7 +154,9 @@ public class TechJobs {
                     element.get("employer"),
                     element.get("location"),
                     element.get("core competency")
-            );      // sout format
+
+            );      // sout format*/
         }       // for element:someJobs
+
     }       // printJobs Method
 }
